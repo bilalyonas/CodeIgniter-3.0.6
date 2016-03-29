@@ -28,16 +28,17 @@ class Main extends CI_Controller {
 		
 		  
     if ($this->form_validation->run()){
-		$data + array (
+		$data = array (
 			'email' => $this->input->post('email'),
 			'is_logged_in' => 1 
-		) ; 
+		); 
 		
-		$this->session->set_uderdata($data) ; 
+		$this->session->set_userdata($data) ; 
         redirect('main/Members'); 
     } else {
         $this->load->view('login');
         }
+		
 		
 	}
 		
