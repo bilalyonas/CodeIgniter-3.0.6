@@ -34,6 +34,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     echo form_close(); 
     
     ?>
+	
+	<a href='<?php echo base_url()."index.php/main/signup"; ?>'>Sign Up</a>
 
 </div>
 
