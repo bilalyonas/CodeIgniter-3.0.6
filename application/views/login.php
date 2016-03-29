@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     
     echo "<p>Email: ";
-    echo form_input('email'); 
+    echo form_input('email', $this->input->post('email')); 
     echo "</p>"; 
     
      echo "<p>Password: ";
