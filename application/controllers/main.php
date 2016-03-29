@@ -56,6 +56,23 @@ class Main extends CI_Controller {
 		
 		
 	}
+	
+	public function signup_validation(){
+		
+		$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]');
+		$this->form_validation->set_rules('password', 'Password', 'required|trim');
+		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|trim|matches[password]');
+		
+		if ($this->form_validation->run()){
+			echo "pass";
+		} else {
+			echo "error you cant signup:" ; 
+		}
+	}
+	
+	
 		
 		public function validate_credentials () {
 			$this->load->model('Model_users');

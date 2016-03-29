@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     echo form_password('password'); 
     echo "</p>";
     
-    echo "<p>Confirm password: ";
+    echo "<p>Confirm Password: ";
     echo form_password('cpassword'); 
     echo "</p>";
     
