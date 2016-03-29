@@ -19,7 +19,7 @@ echo "</pre>" ;
 
 ?>
 	
-<a href='<?php echo base_url()."main/logout" ?>'>Logout</a> 
+<a href='<?php echo base_url()."index.php/main/logout" ?>'>Logout</a> 
 </div>
 
 </body>
