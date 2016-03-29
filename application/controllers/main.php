@@ -13,20 +13,24 @@ class Main extends CI_Controller {
 		$this->load->view('login');
 	}
 	
+	public function signup (){
+		
+		$this->load->view('signup');
 	 
+	}
     public function Members () {
 		if ($this->session->userdata('is_logged_in')) {
 		$this->load->view('members'); 
 		
 		} else {
-			redirect('main/restricted') ; 
+			redirect('index.php/main/restricted') ; 
 		}
 		
  }
  
  
     public function restricted () {
-		$this->load->view('login');
+		$this->load->view('restricted');
 	}
     
 	
