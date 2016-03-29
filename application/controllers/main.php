@@ -15,8 +15,19 @@ class Main extends CI_Controller {
 	
 	 
     public function Members () {
-        $this->load->view('Members');
-    }
+		if ($this->session->userdata('is_logged_in')) {
+		$this->load->view('members'); 
+		
+		} else {
+			redirect('main/restricted') ; 
+		}
+		
+ }
+ 
+ 
+    public function restricted () {
+		$this->load->view('login');
+	}
     
 	
 	public function login_validation() {
@@ -56,6 +67,11 @@ class Main extends CI_Controller {
 	
 		
 		
+	}
+	
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect('main/login'); 
 	}
 	
 	
