@@ -65,10 +65,28 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
 		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|trim|matches[password]');
 		
+		$this->form_validation->set_message('is_unique', "Sorry this email address already exists") ;
+		
 		if ($this->form_validation->run()){
-			echo "pass";
+			
+			$key =md5(uniqid());
+			
+			$this->load->library('email', array('mailtype'=>'html'));
+			$this->email->from('u1258434@unimail.hud.ac.uk', "bilal");
+			$this->email->to($this->input->post('email'));				   
+			$this->email->subject("confirm the account. ");
+			
+			$message= "<p> Signup is successfull <p>" ;
+			$message= "<p><a href='".base_url()."main/register_user/$key'>Click here</a> To confirm the account</p>"; 
+			
+			$this->email->message($message);
+			
+			if ($this->email->send()){
+				echo "Email has been sent" ; 
+				
+			} else echo "Email was not sent."; 
 		} else {
-			echo "error you cant signup:" ;
+			
 			$this->load->view('signup'); 
 		}
 	}
