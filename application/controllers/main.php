@@ -81,10 +81,17 @@ class Main extends CI_Controller {
 			
 			$this->email->message($message);
 			
+			
+			if ($this->model_users->add_temp_user($key)) {
 			if ($this->email->send()){
 				echo "Email has been sent" ; 
+				} else echo "Email was not sent.";
 				
-			} else echo "Email was not sent."; 
+			} else echo "Problem with adding to database"; 
+				
+				
+				
+				
 		} else {
 			
 			$this->load->view('signup'); 
