@@ -68,7 +68,8 @@ class Main extends CI_Controller {
 		if ($this->form_validation->run()){
 			echo "pass";
 		} else {
-			echo "error you cant signup:" ; 
+			echo "error you cant signup:" ;
+			$this->load->view('signup'); 
 		}
 	}
 	
