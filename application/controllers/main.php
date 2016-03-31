@@ -73,12 +73,14 @@ class Main extends CI_Controller {
 			$key =md5(uniqid());
 			
 			$this->load->library('email', array('mailtype'=>'html'));
+			
 			$this->email->from('u1258434@unimail.hud.ac.uk', "bilal");
 			$this->email->to($this->input->post('email'));				   
-			$this->email->subject("confirm the account. ");
+			$this->email->subject("confirm the account.");
 			
-			$message= "<p> Signup is successfull <p>" ;
-			$message= "<p><a href='".base_url()."main/register_user/$key'>Click here</a> To confirm the account</p>"; 
+			$message = "<p> Signup is successfull<p>" ;
+			$message = "<p><a href='http://localhost/CodeIgniter-3.0.6/index.php/main/register_user/$key' >Click here</a>
+			To confirm the account</p>"; 
 			
 			$this->email->message($message);
 			
@@ -122,6 +124,26 @@ class Main extends CI_Controller {
 		redirect('main/login'); 
 	}
 	
+	public function register_user($key){
+	$this->load->model ('model_users') ; 
 	
+	if ($this->model_users->is_key_valid($key)){
+	if ($newemail = $this->model_users->add_user($key)){
+		
+		$data = array(
+		'email' => $newemail, 
+		'is_logged_in' => 1
+		
+		); 
+		
+		$this->session->set_userdata($data) ; 
+		redirect ('main/members') ; 
+	} else echo "failed to add user" ; 
+	
+	
+	} else echo "invalid key" ; 
+	
+
+}
 	
 }
