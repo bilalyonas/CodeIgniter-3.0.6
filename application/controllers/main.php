@@ -60,6 +60,7 @@ class Main extends CI_Controller {
 	public function signup_validation(){
 		
 		$this->load->library('form_validation');
+		$this->load->model('model_users') ;
 		
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[users.email]');
 		$this->form_validation->set_rules('password', 'Password', 'required|trim');
