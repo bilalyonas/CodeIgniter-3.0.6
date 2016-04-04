@@ -19,7 +19,9 @@ echo "</pre>" ;
 
 ?>
 	
-<a href='<?php echo base_url()."index.php/main/logout" ?>'>Logout</a> 
+<a href='<?php echo base_url()."index.php/main/logout" ?>'>Logout</a>
+<a href='<?php echo base_url()."index.php/main/input"; ?>'>input Details</a>
+<a href='<?php echo base_url()."index.php/main/display"; ?>'>Display saved info</a>
 </div>
 
 </body>

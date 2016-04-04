@@ -18,6 +18,18 @@ class Main extends CI_Controller {
 		$this->load->view('signup');
 	 
 	}
+		public function display (){
+		
+		$this->load->view('display');
+	 
+	}
+	
+	public function input (){
+		
+		$this->load->view('input');
+	 
+	}
+	
     public function Members () {
 		if ($this->session->userdata('is_logged_in')) {
 		$this->load->view('members'); 
@@ -145,5 +157,39 @@ class Main extends CI_Controller {
 	
 
 }
+
+public function upload_validation()
+{
+$data['title']="upload Validation";
+$this->load->library('form_validation');
+
+$this->form_validation->set_rules('make', 'make', 'required|trim');
+$this->form_validation->set_rules('model', 'model', 'required|trim');
+$this->form_validation->set_rules('colour', 'colour', 'required|trim');
+$this->form_validation->set_rules('paintcode', 'paintcode', 'required|trim');
+$this->form_validation->set_rules('year', 'year', 'required|trim');
+
+
+
+
+if ($this->form_validation->run() ==FALSE)
+{
+echo "";
+$this->load->view('input', $data);
+}else
+{
+$this->load->model('model_users');
+$result = $this->model_users->insert_car();
+if ($result)
+{
+redirect('main/members', $data);
+}else
+{
+echo "ooopps";
+}  
+}
+}
+
 	
 }
+

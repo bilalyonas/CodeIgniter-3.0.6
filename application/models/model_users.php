@@ -66,6 +66,38 @@ class Model_users extends CI_model {
 	} return false; 
 	
 	}
+		public function insert_car(){
+    
+    $carid = $this->input->post('carid');
+    $make = $this->input->post('make');
+    $model = $this->input->post('model');
+    $colour = $this->input->post('colour');
+    $paintcode = $this->input->post('paintcode');
+    $year = $this->input->post('year');
+   
+
+    
+    $sql = "INSERT INTO Cars (carid,make,model,colour,paintcode,year)
+    VALUES
+    (
+    ".$this->db->escape($carid).",
+    ".$this->db->escape($make).",
+    ".$this->db->escape($model).",
+    ".$this->db->escape($colour).",
+    ".$this->db->escape($paintcode).",
+    ".$this->db->escape($year)."
+
+    )";
+    
+    $result = $this->db->query($sql);
+    if ($this->db->affected_rows()===1){
+        return true;
+    }else{
+        echo "fail";
+    }
+}
+
+
 }
 
 
