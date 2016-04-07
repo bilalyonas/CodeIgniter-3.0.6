@@ -10,12 +10,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="container">
 	<h1>Display Data</h1>
-	
- 
-	
-	
+<h2> </h2>
+<table class="table">
+                        <thead>
+                            <tr>
+                                <td>Recipe No</td>
+                                <td>Recipe Title</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <?php 
+                                            foreach($cars as $car):
+                                ?>
+                                <td><?= anchor("main/car_details/{$car->carid}",$car->make) ?></td>
 
-</div>
-
+                            </tr>
+                            <?php endforeach; ?>
+							                     
+                        </tbody>
+                    </table>
 </body>
 </html>

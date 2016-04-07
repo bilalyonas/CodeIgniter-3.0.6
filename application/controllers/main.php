@@ -18,11 +18,7 @@ class Main extends CI_Controller {
 		$this->load->view('signup');
 	 
 	}
-		public function display (){
-		
-		$this->load->view('display');
-	 
-	}
+	
 	
 	public function input (){
 		
@@ -190,6 +186,23 @@ echo "ooopps";
 }
 }
 
+public function display (){
+	
+	$this->load->helper('form');
+	$this->load->model('model_users', 'cars');
+	$cars = $this->cars->display_all_data();
+	$this->load->view('display', compact('cars'));
+	
+}
+
+public function car_details ($carid){
+		$this->load->helper('form');
+
+	$this->load->model('model_users', 'cars');
+	$car = $this->cars->fetch_all_data($carid);
+	$this->load->view('car_detail', compact('car'));
+	
+}
 	
 }
 
