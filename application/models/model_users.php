@@ -96,7 +96,26 @@ class Model_users extends CI_model {
         echo "fail";
     }
 }
+public function display_all_data() {
+	
+	$query = $this->db
+				->select('carid')
+				->select('make')
+				->from('Cars')
+				->get();
+				return $query->result(); 
+				
+}
 
+public function fetch_all_data($carid) {
+	
+	$q = $this->db->from('Cars')
+				->where(['carid'=>$carid])				
+				->get();
+				if($q->num_rows())
+				return $q->row(); 
+				
+}
 
 }
 
