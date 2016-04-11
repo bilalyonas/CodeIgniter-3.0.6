@@ -18,7 +18,11 @@ class Main extends CI_Controller {
 		$this->load->view('signup');
 	 
 	}
-	
+		public function update (){
+		
+		$this->load->view('update');
+	 
+	}
 	
 	public function input (){
 		
@@ -196,13 +200,41 @@ public function display (){
 }
 
 public function car_details ($carid){
-		$this->load->helper('form');
-
+	$this->load->helper('form');
 	$this->load->model('model_users', 'cars');
 	$car = $this->cars->fetch_all_data($carid);
 	$this->load->view('car_detail', compact('car'));
 	
 }
+
+public function edit ($carid){
+	$this->load->helper('form');
+	$this->load->model('model_users', 'cars');
+	$car = $this->cars->fetch_all_data($carid);
+	$this->load->view('update', compact('car'));
+	
+}
+ public function update_car()
+   {
+	
+		$carid = $this->input->post('carid');
+		$Cars = array(
+		'make' => $this->input->post('make'),
+		'model' => $this->input->post('model'),
+		'colour' => $this->input->post('colour'),
+		'paintcode' => $this->input->post('paintcode'),
+		'year' => $this->input->post('year')
+		);
+		
+		$this->load->model('model_users');
+		$this->model_users->car_update($Cars,$carid);
+		echo '<script>alert("Car Updated");</script>';
+		redirect('Main/members', 'refresh');
+   }
+
+
+
+
 	
 }
 
