@@ -123,4 +123,10 @@ public function fetch_all_data($carid) {
             $this->db->update('Cars', $Cars);
           
       }
+	  
+	            public function delete_car()
+      {
+            $this->db->where('carid',$this->uri->segment(3));  
+            $this->db->delete('Cars');
+      }
 }
