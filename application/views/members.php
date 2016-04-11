@@ -5,24 +5,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to bilal</title>
-</head> 
+
 <body>
+	
+<link href="<?php echo base_url()."css/style.css";?>" rel="stylesheet" type="text/css">
+
+	   <div id="outerwrapper">
+	
+	
+	<div id="innerwrapper">
+	
+	
+	
+</body>
+<?php include('navigation.html');?>
+
+  <img id="img" src="<?php echo base_url('images/banner.jpg'); ?>" />
+
 
 <div id="container">
-	<h1>Members</h1>
-	
+	   <div id="logindetail"> 
+	   <?php
 
-<?php
-echo "<pre>" ; 
-print_r($this->session->all_userdata()) ;
-echo "</pre>" ; 
+echo "your logged into account  " . $_SESSION ["email"];
 
 ?>
+
+</div>
+	<h1>Members</h1>
+	
 	
 <a href='<?php echo base_url()."index.php/main/logout" ?>'>Logout</a>
 <a href='<?php echo base_url()."index.php/main/input"; ?>'>input Details</a>
 <a href='<?php echo base_url()."index.php/main/display"; ?>'>Display saved info</a>
 </div>
-
+	</div>
+	   </div>
+	   
 </body>
 </html>
