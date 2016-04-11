@@ -232,7 +232,13 @@ public function edit ($carid){
 		redirect('Main/members', 'refresh');
    }
 
-
+ public function delete()
+    {
+		$this->load->model('model_users');
+		$this->model_users->delete_car();
+		echo '<script>alert("Removed Successfully");</script>';
+		redirect('main/members', 'refresh');
+    }
 
 
 	
