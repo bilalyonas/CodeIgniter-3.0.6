@@ -7,6 +7,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>Welcome to bilal</title>
 
 <body>
+	
+<link href="<?php echo base_url()."css/style.css";?>" rel="stylesheet" type="text/css">
+
+	   <div id="outerwrapper">
+	
+	
+	<div id="innerwrapper">
+	
+	
+	
+</body>
+<?php include('navigation.html');?>
+
+  <img id="img" src="<?php echo base_url('images/banner.jpg'); ?>" />
+
 
 <div id="container">
 	<h1>Car Details</h1>
@@ -25,6 +40,8 @@ echo $car->year;
 ?>
 
 </div>
-
+    </div>
+       </div>
+       
 </body>
 </html>
