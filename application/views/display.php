@@ -14,8 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <table class="table">
                         <thead>
                             <tr>
-                                <td>Recipe No</td>
-                                <td>Recipe Title</td>
+                                
+                                <td>All cars available to search</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             foreach($cars as $car):
                                 ?>
                                 <td><?= anchor("main/car_details/{$car->carid}",$car->make) ?></td>
+                                <td><?= anchor("main/edit/{$car->carid}", "Update") ?></td>
 
                             </tr>
                             <?php endforeach; ?>

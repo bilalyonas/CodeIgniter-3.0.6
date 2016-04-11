@@ -115,8 +115,12 @@ public function fetch_all_data($carid) {
 				if($q->num_rows())
 				return $q->row(); 
 				
-}
 
 }
-
-
+    public function car_update($Cars,$carid)
+      {
+            $this->db->where('carid',$carid);
+            $this->db->update('Cars', $Cars);
+          
+      }
+}
