@@ -125,11 +125,11 @@ header {
 }
 /*CSS for the paragraph with details about the page*/
 #mainpar {
-        font-weight:bold;
-	color: white;
+	
+    font-weight:bold;
+	color: Black;
 	font-family: Georgia, serif;
-	padding: 5px; 
-	width:1000px;
+	font-size: 200%;
 }
 /*CSS for the design page details*/
 #destable
@@ -143,4 +143,11 @@ border-collapse:collapse;
 	
 	float:right;
 	right:80px;
+}
+
+table{
+	  font-weight:bold;
+	color: Black;
+	font-family: Georgia, serif;
+	font-size: 200%;
 }

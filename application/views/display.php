@@ -27,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Display Data</h1>
 <h2> </h2>
 <table class="table">
+	   
                         <thead>
                             <tr>
                             <td>All cars available to search</td>
@@ -36,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							
                         </thead>
                         <tbody>
+					 
                             <tr>
 							
                                 <?php 
@@ -47,11 +49,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             </tr>
                             <?php endforeach; ?>
-							                     
+							       </div>              
                         </tbody>
                     </table>
-</div>
+
 	</div>
-	
+	   </div>
+	   </div>
+	   
 </body>
 </html>

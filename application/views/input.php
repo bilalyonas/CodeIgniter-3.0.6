@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="container">
 	<h1>Input details</h1>
 	
- 
+  <div id="forms">
     <?php
     
   	echo form_open('main/upload_validation');
@@ -61,11 +61,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	
 	echo form_close();
 	 ?>
-    
-   
-	
-	<a href='<?php echo base_url()."index.php/main/signup"; ?>'>Sign Up</a>
 
+</div>
+   
 </div>
 	</div>
 	   </div>

@@ -25,20 +25,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <div id="container">
 	<h1>Car Details</h1>
+	<div id="mainpar">
 <?php
+echo "<p>ID: ";
 echo $car->carid;
-echo "<br>";
-echo $car->make;
-echo "<br>";
-echo $car->model;
-echo "<br>";
-echo $car->colour;
-echo "<br>";
-echo $car->paintcode;
-echo "<br>";
-echo $car->year;
-?>
+echo "</p>"; 
 
+
+echo "<p>Make: ";
+echo $car->make;
+echo "</p>";
+
+
+echo "<p>Model: ";
+echo $car->model;
+echo "</p>";
+
+
+echo "<p>Colour: ";
+echo $car->colour;
+echo "</p>";
+
+echo "<p>Paint Code: ";
+echo $car->paintcode;
+echo "</p>";
+
+
+echo "<p>Year: ";
+echo $car->year;
+echo "</p>";
+?>
+</div>
 </div>
     </div>
        </div>
