@@ -35,7 +35,7 @@ class Main extends CI_Controller {
 		$this->load->view('members'); 
 		
 		} else {
-			redirect('index.php/main/restricted') ; 
+			redirect('main/restricted') ; 
 		}
 		
  }
