@@ -30,10 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
     
     echo form_open('Main/login_validation');
-    
+    // view validation errors if system picks up any
     echo validation_errors();
     
-    
+    // Login form 
     echo "<p>Email: ";
     echo form_input('email', $this->input->post('email')); 
     echo "</p>"; 
@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     ?>
  </div>
-	<a href='<?php echo base_url()."index.php/main/signup"; ?>'>Sign Up</a>
 
 </div>
 	</div>

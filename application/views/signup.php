@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
     
     echo form_open('main/signup_validation') ;
-    
+    // view validation errors if incorrect email format or passowords dont match
     echo validation_errors(); 
     
     echo "<p>Email: ";

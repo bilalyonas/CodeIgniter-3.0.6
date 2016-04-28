@@ -27,6 +27,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<h1>Car Details</h1>
 	<div id="mainpar">
 <?php
+
+// view details of cars 
 echo "<p>ID: ";
 echo $car->carid;
 echo "</p>"; 
@@ -59,8 +61,6 @@ echo "</p>";
 </div>
     </div>
        </div>
-	   
-	   <button type="button">Click Me!</button>
        
 </body>
 </html>

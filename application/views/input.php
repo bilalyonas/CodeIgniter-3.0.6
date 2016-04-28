@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
   	echo form_open('main/upload_validation');
 	
-	
+	// form to input data
 	echo validation_errors();
 	
 	echo"<p>make: ";

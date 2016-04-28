@@ -11,12 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <link href="<?php echo base_url()."css/style.css";?>" rel="stylesheet" type="text/css">
 
 	   <div id="outerwrapper">
-	
-	
 	<div id="innerwrapper">
-	
-	
-	
+		
 </body>
 <?php include('navigation.html');?>
 
@@ -40,7 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					 
                             <tr>
 							
-                                <?php 
+                                <?php
+								// Links for using CRUD features
                                             foreach($cars as $car):
                                 ?>
                                 <td><?= anchor("main/car_details/{$car->carid}",$car->make) ?></td>
