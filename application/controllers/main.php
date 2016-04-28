@@ -1,45 +1,34 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 	
-	// View login page on startup
 	public function index()
 	{
 		$this->login(); 
 	}
 
-	//Load login page
 	public function login()
 	{
 		$this->load->view('login');
 	}
-	
-	//Load signup page
 	
 	public function signup (){
 		
 		$this->load->view('signup');
 	 
 	}
-	
-	//Load update page
 		public function update (){
 		
 		$this->load->view('update');
 	 
 	}
 	
-	//Load input page
-	
 	public function input (){
 		
 		$this->load->view('input');
 	 
 	}
-	
-	//Only view members page if user is logged in
 	
     public function Members () {
 		if ($this->session->userdata('is_logged_in')) {
@@ -51,12 +40,12 @@ class Main extends CI_Controller {
 		
  }
  
- // Restricted page
+ 
     public function restricted () {
 		$this->load->view('restricted');
 	}
     
-// Validation for User Login	
+	
 	public function login_validation() {
 		
 		$this->load->library('form_validation') ;
@@ -70,7 +59,7 @@ class Main extends CI_Controller {
 			'email' => $this->input->post('email'),
 			'is_logged_in' => 1 
 		); 
-		// If login successfull Redirect to members page
+		
 		$this->session->set_userdata($data) ; 
         redirect('main/Members'); 
     } else {
@@ -79,7 +68,7 @@ class Main extends CI_Controller {
 		
 		
 	}
-	// Signup validation
+	
 	public function signup_validation(){
 		
 		$this->load->library('form_validation');
@@ -90,13 +79,13 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('cpassword', 'Confirm Password', 'required|trim|matches[password]');
 		
 		$this->form_validation->set_message('is_unique', "Sorry this email address already exists") ;
-		// if validation runs send an email to user
+		
 		if ($this->form_validation->run()){
 			
 			$key =md5(uniqid());
 			
 			$this->load->library('email', array('mailtype'=>'html'));
-			// Link in email for users to confirm account
+			
 			$this->email->from('u1258434@unimail.hud.ac.uk', "bilal");
 			$this->email->to($this->input->post('email'));				   
 			$this->email->subject("confirm the account.");
@@ -125,7 +114,7 @@ class Main extends CI_Controller {
 	}
 	
 	
-		// function to validate credentials when user is trying to log in
+		
 		public function validate_credentials () {
 			$this->load->model('Model_users');
 			
@@ -142,13 +131,10 @@ class Main extends CI_Controller {
 		
 	}
 	
-	//function when user logs out
 	public function logout() {
 		$this->session->sess_destroy();
 		redirect('main/login'); 
 	}
-	
-	// register user function with each user getting a unique key which unless matches wont allow registration
 	
 	public function register_user($key){
 	$this->load->model ('model_users') ; 
@@ -171,7 +157,7 @@ class Main extends CI_Controller {
 	
 
 }
- //Add details funcion
+
 public function upload_validation()
 {
 $data['title']="upload Validation";
@@ -204,7 +190,6 @@ echo "ooopps";
 }
 }
 
-// function for displaying data in database 
 public function display (){
 	
 	$this->load->helper('form');
@@ -214,7 +199,6 @@ public function display (){
 	
 }
 
-// show full details once user chooses a car
 public function car_details ($carid){
 	$this->load->helper('form');
 	$this->load->model('model_users', 'cars');
@@ -223,7 +207,6 @@ public function car_details ($carid){
 	
 }
 
-// Edit data from database
 public function edit ($carid){
 	$this->load->helper('form');
 	$this->load->model('model_users', 'cars');
@@ -231,8 +214,6 @@ public function edit ($carid){
 	$this->load->view('update', compact('car'));
 	
 }
-
-
  public function update_car()
    {
 	
@@ -251,7 +232,6 @@ public function edit ($carid){
 		redirect('Main/members', 'refresh');
    }
 
-   // Delete data from database
  public function delete()
     {
 		$this->load->model('model_users');
@@ -260,14 +240,14 @@ public function edit ($carid){
 		redirect('main/members', 'refresh');
     }
 
-	// export chosen data in csv format
  public function export( $carid ){
 
       
 
 
         $file_name = 'carDetail_'.date("Y-m-d").'.csv';
-		
+
+        
         $query = $this->db->query("SELECT 
 
                 make as 'make',

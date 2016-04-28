@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <?php  echo form_open("main/update_car/$car->carid"); ?>
                                
                             
-        //Form to update data from database                    
+                            
       <p>
     <input type="text" name="carid" value="<?php echo $car->carid; ?>" id="carid" hidden />
     </p>
