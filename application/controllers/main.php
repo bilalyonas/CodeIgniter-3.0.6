@@ -240,7 +240,31 @@ public function edit ($carid){
 		redirect('main/members', 'refresh');
     }
 
+ public function export( $carid ){
 
+      
+
+
+        $file_name = 'carDetail_'.date("Y-m-d").'.csv';
+
+        
+        $query = $this->db->query("SELECT 
+
+                make as 'make',
+				model as 'model',
+				colour as 'colour',
+				paintcode as 'paintcode',
+				year as 'year'
+			      
+                FROM cars
+                WHERE `carid`='{$carid}'
+                "); 
+        $this->load->dbutil();
+        $data = $this->dbutil->csv_from_result($query);
+        $this->load->helper('download');
+        force_download($file_name, $data); 
+        exit();
+    }
 	
 }
 
