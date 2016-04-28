@@ -1,5 +1,5 @@
 <?php
-
+// logging in 
 class Model_users extends CI_model {
     
     public function can_log_in(){
@@ -14,7 +14,7 @@ class Model_users extends CI_model {
             return false;
         }
     }
-    
+	// Add user to temp_users when registered   
     public function add_temp_user($key) {
         
         $data = array (
@@ -42,6 +42,7 @@ class Model_users extends CI_model {
 	} else return false ; 
 	}
 	
+	// once user validates account add to users table
     	public function add_user($key) { 
 	
 	$this->db->where('key', $key) ; 
@@ -66,6 +67,8 @@ class Model_users extends CI_model {
 	} return false; 
 	
 	}
+	
+	// insert data into database
 		public function insert_car(){
     
     $carid = $this->input->post('carid');
@@ -96,6 +99,7 @@ class Model_users extends CI_model {
         echo "fail";
     }
 }
+//view data from database
 public function display_all_data() {
 	
 	$query = $this->db
@@ -117,6 +121,8 @@ public function fetch_all_data($carid) {
 				
 
 }
+
+//update data from database
     public function car_update($Cars,$carid)
       {
             $this->db->where('carid',$carid);
