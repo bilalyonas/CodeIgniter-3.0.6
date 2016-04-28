@@ -46,6 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?= anchor("main/car_details/{$car->carid}",$car->make) ?></td>
                                 <td><?= anchor("main/edit/{$car->carid}", "Update") ?></td>
 								 <td><?= anchor("main/delete/{$car->carid}", "Delete") ?></td>
+								 <td><?= anchor("main/export/{$car->carid}", "Export") ?></td>
 
                             </tr>
                             <?php endforeach; ?>
