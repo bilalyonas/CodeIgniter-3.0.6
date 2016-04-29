@@ -34,7 +34,7 @@ echo "your logged into account  " . $_SESSION ["email"];
 </div>
 	<h1>Members</h1>
 	
-	// members page where links are for using CRUD features 
+
 <a href='<?php echo base_url()."index.php/main/logout" ?>'>Logout</a>
 <a href='<?php echo base_url()."index.php/main/input"; ?>'>input Details</a>
 <a href='<?php echo base_url()."index.php/main/display"; ?>'>Display saved info</a>
